@@ -9,6 +9,14 @@
   <strong>Content:</strong>
   <%= @post.content %>
 </p>
+<hr />
+<h3>
+	<%= @post.comments.count %> comments 
+</h3>
+<%= render @post.comments %>
+<hr />
+<h4>Add a comment: </h4>
+<%= render "comments/form" %>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>
