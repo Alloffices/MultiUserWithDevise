@@ -1,4 +1,5 @@
 class Post < ActiveRecord::Base
+	acts_as_votable
 	
 	validates :title, :content, presence: true
 

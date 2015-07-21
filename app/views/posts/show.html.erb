@@ -14,9 +14,14 @@
   <strong>Content:</strong>
   <%= @post.content %>
 </p>
+<p><%= @post.get_upvotes.size %></p>
+<%= link_to "Like", like_post_path(@post), method: :get %>
+
 <hr />
+
+
 <h3>
-	<%= @post.comments.count %> comments
+	<%= pluralize(@post.comments.count, "Comment") %>
 </h3>
 	<%= render @post.comments %>
 <hr />

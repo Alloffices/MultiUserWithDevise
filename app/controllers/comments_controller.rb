@@ -3,8 +3,7 @@ class CommentsController < ApplicationController
 	before_action :set_post, only: [:create]
 
 	def create
-		@comments = @post.comments.create(params[:comment].permit(:name, :body))
-		redirect_to post_path(@post)
+		@comments = Comment.create(params[:comment].permit(:name, :body))
 	end
 
 	private
