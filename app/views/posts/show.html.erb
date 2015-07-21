@@ -8,16 +8,17 @@
   <strong>Title:</strong>
   <%= @post.title %>
 </p>
-
+<%= @post.user.email %>
+<%= @post.user.name %>
 <p>
   <strong>Content:</strong>
   <%= @post.content %>
 </p>
 <hr />
 <h3>
-	<%= @post.comments.count %> comments 
+	<%= @post.comments.count %> comments
 </h3>
-<%= render @post.comments %>
+	<%= render @post.comments %>
 <hr />
 <h4>Add a comment: </h4>
 <%= render "comments/form" %>

@@ -16,8 +16,10 @@
   <tbody>
     <% @posts.each do |post| %>
       <tr>
-        <td><%= link_to (image_tag post.image.url(:small)) %></td>
-        <td><%= post.title %></td>
+
+        <td><%= link_to (image_tag post.image.url(:small)), post_path(post) %></td>
+
+        <td><%= link_to post.title, post_path(post) %></td>
         <td><%= post.content %></td>
         <% if current_user.try(:admin?)%>
         <td><%= link_to 'Show', post %></td>
