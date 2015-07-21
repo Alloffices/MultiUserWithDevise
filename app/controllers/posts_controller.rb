@@ -64,11 +64,13 @@ class PostsController < ApplicationController
 
   def upvote
     @post.upvote_by current_user
+    cookies[:upvote] = true
     redirect_to :back
   end
 
   def downvote
     @post.downvote_by current_user
+    cookies[:downvote] = true
     redirect_to :back
   end
 

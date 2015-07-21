@@ -16,7 +16,8 @@
 <div>
 	<%= link_to "Home", root_path %> | 
 	<%= link_to "Settings", edit_user_registration_path %> |
-	<%= link_to "Logout", destroy_user_session_path, method: :delete, data: { confirm: "Are your sure?"} %>
+	<%= link_to "Logout", destroy_user_session_path, method: :delete, data: { confirm: "Are your sure?"} %> |
+	<%= link_to 'New Post', new_post_path %>
 <% else %>
 	<%= link_to "Home", root_path %> | 
 	<%= link_to "Signin", new_user_session_path %>
