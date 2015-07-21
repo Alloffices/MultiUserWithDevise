@@ -20,7 +20,6 @@ class ActsAsVotableMigration < ActiveRecord::Migration
     add_index :votes, [:voter_id, :voter_type, :vote_scope]
     add_index :votes, [:votable_id, :votable_type, :vote_scope]
   end
-
   def self.down
     drop_table :votes
   end
