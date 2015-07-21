@@ -18,9 +18,14 @@
       <tr>
 
         <td><%= link_to (image_tag post.image.url(:small)), post_path(post) %></td>
+        
         <td>
         <p><%= post.get_upvotes.size %></p>
         <%= link_to "Like", like_post_path(post), method: :get %></td>
+        
+        <td>
+        <p><%= post.get_downvotes.size %></p>
+        <%= link_to "Dislike", dislike_post_path(post), method: :get %></td>
 
         <td><%= link_to post.title, post_path(post) %></td>
         <td><%= post.content %></td>
