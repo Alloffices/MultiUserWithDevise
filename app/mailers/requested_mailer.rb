@@ -9,7 +9,7 @@ class RequestedMailer < ActionMailer::Base
 
 		mail(to: post_user.email,
 			subject: "Request From Another Creative",
-			body: "this is another message from some one requestingt o join my project. #{current_user}"
+			body: "this is another message from some one requestingt o join my project. #{current_user.email}"
 			)
 	end
 

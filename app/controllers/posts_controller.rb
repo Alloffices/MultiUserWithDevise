@@ -66,8 +66,6 @@ class PostsController < ApplicationController
 
 
 
-
-
   def upvote
     # @post = Post.find(params[:id])
     @post = Post.find(params[:id])
@@ -78,12 +76,6 @@ class PostsController < ApplicationController
     redirect_to :back
 
   end
-
-
-
-
-
-
 
 
 

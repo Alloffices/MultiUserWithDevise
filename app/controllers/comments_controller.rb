@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
 	before_action :set_post, only: [:create]
 
 	def create
-		@comments = Comment.create(params[:comment].permit(:name, :body))
+		@comments = Comment.create(params[:comment].permit(:body))
 	end
 
 	private
