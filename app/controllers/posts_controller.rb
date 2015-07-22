@@ -62,11 +62,31 @@ class PostsController < ApplicationController
     end
   end
 
+
+
+
+
+
+
   def upvote
+    # @post = Post.find(params[:id])
+    @post = Post.find(params[:id])
     @post.upvote_by current_user
-    cookies[:upvote] = true
+
+    RequestedMailer.requested_created(current_user, @post.user, @post.title).deliver
+
     redirect_to :back
+
   end
+
+
+
+
+
+
+
+
+
 
   def downvote
     @post.downvote_by current_user
