@@ -1,4 +1,9 @@
 <p id="notice"><%= notice %></p>
+<br />
+<div class="container">
+  <%= link_to 'New Post', new_post_path, class: "btn btn-primary btn-block" %>
+</div>
+<br />
 
 <div>
 	<%= image_tag @post.image.url(:medium) %>

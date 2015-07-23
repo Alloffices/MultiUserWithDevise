@@ -175,10 +175,138 @@ body, html {
 
 
 
-.imges {
-display: inline-block;
-height: auto;
-max-width: 100%;
+body {
+ background-color:#eee;   
 }
+
+#pinBoot {
+  max-width: 100%;
+  width: 100%;
+}
+
+.white-panel {
+    display: inline-block;
+    clear: right;
+    height: auto;
+    max-width: 100%;
+  background: white;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+  padding: 10px;
+}
+/*
+stylize any heading tags withing white-panel below
+*/
+
+.white-panel h1 {
+  font-size: 1em;
+}
+.white-panel h1 a {
+  color: #A92733;
+}
+.white-panel:hover {
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+  margin-top: -5px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+
+
+
+
+
+*{
+    font-family: 'Open Sans', sans-serif;
+}
+
+.well {
+    margin-top:-20px;
+    background-color:#007FBD;
+    border:2px solid #0077B2;
+    text-align:center;
+    cursor:pointer;
+    font-size: 25px;
+    padding: 15px;
+    border-radius: 0px !important;
+}
+
+.well:hover {
+    margin-top:-20px;
+    background-color:#0077B2;
+    border:2px solid #0077B2;
+    text-align:center;
+    cursor:pointer;
+    font-size: 25px;
+    padding: 15px;
+    border-radius: 0px !important;
+    border-bottom : 2px solid rgba(97, 203, 255, 0.65);
+}
+
+body {
+font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+font-size: 14px;
+line-height: 1.42857143;
+color: #fff;
+background-color: #F1F1F1;
+}
+
+
+
+
+#posts {
+    .post {
+        background: #F8F9FA;
+        width: 30%;
+        float: left;
+        margin: 1rem 1.5%;
+        border: 1px solid #E4E4E4;
+        border-radius: 0.3rem;
+        .post_image {
+            height: 200px;
+            overflow: hidden;
+            img {
+                width: 100%;
+                border-radius: .3rem .3rem 0 0 ;
+            }
+        }
+        .post_content {
+            h2 {
+                margin: 0;
+                font-weight: 100;
+                padding: 1rem 5%;
+                border-bottom: 1px solid #E4E4E4;
+                font-size: 1.25rem;
+                a {
+                    text-decoration: none;
+                    color: #333233;
+                    &:hover {
+                        color: #50A7C7;
+                    }
+                }
+            }
+            .data {
+                padding: .75rem 5%;
+                color: #969696;
+                .username, .buttons {
+                    margin: 0;
+                    font-size: .8rem;
+                }
+                .username {
+                    float: left;
+                }
+                .buttons {
+                    float: right;
+                    span {
+                        margin-left: .5rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
 
 
