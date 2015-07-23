@@ -1,53 +1,26 @@
 <p id="notice"><%= notice %></p>
 
 <% if user_signed_in? %>
+<br />
+<div class="container">
+  <%= link_to 'New Post', new_post_path, class: "btn btn-primary btn-block" %>
+</div>
+<br />
 
-<h1>Listing Posts</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Content</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
     <% @posts.each do |post| %>
-      <tr>
+<div class="imges">
+        <%= link_to (image_tag post.image.url(:medium)), post_path(post) %>
+        <h2>
+</div>
+          <%= link_to post.title, post_path(post) %>
+        </h2>
 
-        <td><%= link_to (image_tag post.image.url(:small)), post_path(post) %></td>
+          Submitted by
+          <%= post.user.email %>
 
-        <td>
-        
-        <p><%= post.get_upvotes.size %></p>
-        <%= link_to "Like", like_post_path(post), method: :get %></td>
-        
-        <td>
-        <p><%= post.get_downvotes.size %></p>
-        <%= link_to "Dislike", dislike_post_path(post), method: :get %></td>
-
-        <td><%= link_to post.title, post_path(post) %></td>
-        <td><%= post.content %></td>
-
-        <% if current_user.try(:admin?)%>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% else %>
-        <td><%= link_to 'Show', post %></td>
-        <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<br>
-
-<%= link_to 'New Post', new_post_path %>
-
-<% else %>
-
-<h1>Listing Posts</h1>
-
+  <% end %>
 <% end %>
+
+
+
+

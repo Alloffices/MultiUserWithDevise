@@ -1,0 +1,14 @@
+
+
+  <%= link_to (image_tag post.image.url()), post_path(post) %>
+
+  <%= link_to post.title, post_path(post) %>
+  <p><%= post.get_upvotes.size %>Requests</p>
+
+                  <% if current_user.try(:admin?)%>
+                    <%= link_to 'Edit', edit_post_path(post), class: "btn btn-primary btn-block" %>
+                    <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary btn-block" %>
+                  <% else %>
+                    <%= link_to "Like", like_post_path(post), method: :get, class: "btn btn-primary btn-block" %>
+                    <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary btn-block" %>
+                  <% end %>
