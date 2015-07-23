@@ -14,7 +14,6 @@
  *= require_self
  */
 
- 
 /* "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"*/
 @import "bootstrap-sprockets";
 @import "bootstrap";
@@ -235,9 +234,8 @@ stylize any heading tags withing white-panel below
 #posts {
     .post {
         background: #F8F9FA;
-        width: 30%;
-        float: left;
-        margin: 1rem 1.5%;
+        width: auto;
+        margin: 15px;
         border: 1px solid #E4E4E4;
         border-radius: 0.3rem;
         .post_image {
@@ -245,6 +243,7 @@ stylize any heading tags withing white-panel below
             overflow: hidden;
             img {
                 width: 100%;
+                text-align: center;
                 border-radius: .3rem .3rem 0 0;
             }
         }
