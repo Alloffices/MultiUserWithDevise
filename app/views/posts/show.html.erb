@@ -1,36 +1,43 @@
 <p id="notice"><%= notice %></p>
 <br />
+
 <div class="container">
   <%= link_to 'New Post', new_post_path, class: "btn btn-primary btn-block" %>
 </div>
 <br />
 
-<div>
-	<%= image_tag @post.image.url(:medium) %>
+
+<div class="col-md-8 col-md-offset-2">
+  <div class="panel panel-default">
+    <div class="panel-heading pin_image">
+		<%= image_tag @post.image.url(:medium) %>
+    </div>
+    <div class="panel-body">
+      <h1>
+        <%= @post.title %>
+      </h1>
+      <p class="description">
+        <%= @post.content %>
+      </p>
+      </p>
+		<%= @post.user.name %>
+	  <p>
+	  	<p>
+		  <strong>Content:</strong>
+		  <%= @post.content %>
+		</p>
+    </div>
+    <div class="panel-footer">
+      <div class="row">
+
+          <p class="user">
+            Requests
+			<p><%= @post.get_upvotes.size %></p>
+			<hr />
+          </p>
+          <%= link_to "Like", like_post_path(@post), method: :get, class: "btn btn-primary btn-block" %>
+        </div>
+
+    </div>
+  </div>
 </div>
-
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
-<%= @post.user.name %>
-<p>
-  <strong>Content:</strong>
-  <%= @post.content %>
-</p>
-<p><%= @post.get_upvotes.size %></p>
-<%= link_to "Like", like_post_path(@post), method: :get %>
-
-<hr />
-
-
-<h3>
-	<%= pluralize(@post.comments.count, "Comment") %>
-</h3>
-	<%= render @post.comments %>
-<hr />
-<h4>Add a comment: </h4>
-<%= render "comments/form" %>
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
