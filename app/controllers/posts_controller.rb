@@ -74,7 +74,6 @@ class PostsController < ApplicationController
     RequestedMailer.requested_created(current_user, @post.user, @post.title).deliver
 
     redirect_to :back
-
   end
 
 
