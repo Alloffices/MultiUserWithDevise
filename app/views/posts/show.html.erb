@@ -12,6 +12,8 @@
     <div class="panel-heading pin_image">
 		<%= image_tag @post.image.url(:medium) %>
     </div>
+
+
     <div class="panel-body">
       <h1>
         <%= @post.title %>
@@ -37,6 +39,22 @@
           </p>
           <%= link_to "Join Project", like_post_path(@post), method: :get, class: "btn btn-primary btn-block" %>
         </div>
+
+  <% @post ||= current_user(@post) %>
+  <div class="stats">
+    <a href="<%= accepted_post_path(@post) %>">
+      <strong id="following" class="stat">
+        <%= @post.accepted.count %>
+      </strong>
+      following
+    </a>
+    <a href="<%= requester_post_path(@post) %>">
+      <strong id="followers" class="stat">
+        <%= @post.requester.count %>
+      </strong>
+      followers
+    </a>
+  </div>
 
     </div>
   </div>

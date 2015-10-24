@@ -11,8 +11,29 @@ class Post < ActiveRecord::Base
 	has_many :comments
 
 	#Join table associations
-	has_many :post_groups
-	has_many :group_members, class_name: "User", source: :user, through: :post_groups
+	has_many :group_requests, class_name:  "Group",
+                                  foreign_key: "requester_id",
+                                  dependent:   :destroy
+  	has_many :group_users, class_name:  "Group",
+                                   foreign_key: "accepted_id",
+                                   dependent:   :destroy
+	has_many :requester, through: :group_requests
+	has_many :accepted, through: :group_users
+
+
+	def request(other_post)
+		group_requests.create(accepted_id: other_post.id)
+	end
+
+	# Unfollows a user.
+	def unrequest(other_post)
+		group_requests.find_by(accepted_id: other_post.id).destroy
+	end
+
+	# Returns true if the current user is following the other user.
+	def accepted?(other_post)
+		requesting.include?(other_post)
+	end
 
 	private
 

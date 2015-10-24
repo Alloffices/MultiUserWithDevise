@@ -1,6 +1,8 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
   before_action :authenticate_user!
+  before_action :logged_in_user, only: [:index, :edit, :update, :destroy,
+                                        :requester, :accepted]
 
   # GET /posts
   # GET /posts.json
@@ -83,6 +85,20 @@ class PostsController < ApplicationController
     @post.downvote_by current_user
     cookies[:downvote] = true
     redirect_to :back
+  end
+
+  def accepted
+    @title = "Accepted"
+    @post  = Post.find(params[:id])
+    @users = @user.accepted.paginate(page: params[:page])
+    render 'show_accepted'
+  end
+
+  def requester
+    @title = "Requesters"
+    @post  = Post.find(params[:id])
+    @users = @user.requester.paginate(page: params[:page])
+    render 'show_requester'
   end
 
   private

@@ -19,8 +19,7 @@ class User < ActiveRecord::Base
   has_many :comments
 
   #Join table associations
-  has_many :post_groups
-  has_many :post_members, class_name: "Post", source: :post, through: :post_groups
+  belongs_to :group
 
   after_create :send_notification
 
