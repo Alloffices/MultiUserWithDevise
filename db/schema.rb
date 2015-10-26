@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151023164537) do
+ActiveRecord::Schema.define(version: 20151025085234) do
 
   create_table "comments", force: :cascade do |t|
     t.string   "name"
@@ -22,17 +22,6 @@ ActiveRecord::Schema.define(version: 20151023164537) do
   end
 
   add_index "comments", ["post_id"], name: "index_comments_on_post_id"
-
-  create_table "groups", force: :cascade do |t|
-    t.integer  "requester_id"
-    t.integer  "accepted_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-  end
-
-  add_index "groups", ["accepted_id"], name: "index_groups_on_accepted_id"
-  add_index "groups", ["requester_id", "accepted_id"], name: "index_groups_on_requester_id_and_accepted_id", unique: true
-  add_index "groups", ["requester_id"], name: "index_groups_on_requester_id"
 
   create_table "posts", force: :cascade do |t|
     t.string   "title"
@@ -48,8 +37,14 @@ ActiveRecord::Schema.define(version: 20151023164537) do
 
   add_index "posts", ["user_id"], name: "index_posts_on_user_id"
 
+  create_table "searches", force: :cascade do |t|
+    t.string   "keywords"
+    t.string   "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
-    t.integer  "post_id"
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"

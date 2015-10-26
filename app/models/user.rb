@@ -18,9 +18,6 @@ class User < ActiveRecord::Base
 
   has_many :comments
 
-  #Join table associations
-  belongs_to :group
-
   after_create :send_notification
 
   def send_notification

@@ -1,0 +1,14 @@
+<h1>Search Result</h1>
+<% if @search.search_posts.empty? %>
+	<p>No Records Found</p>
+<% else %>
+	<% @search.search_posts.each do |c| %>
+		<div>	
+			<h1><%= image_tag c.image, style: "
+			height: 100px;
+			width: 100px;
+			"%></h1>
+			<p><%= link_to c.title, post_path(@search.search_posts, @post) %></p>
+		</div>
+	<% end %>
+<% end %>

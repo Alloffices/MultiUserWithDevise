@@ -5,11 +5,3 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-# Following relationships
-
-users = User.all
-user  = users.first
-accepted = users[2..50]
-requester = users[3..40]
-accepted.each { |accepted| user.accept(accepted) }
-requesters.each { |requester| requester.accept(user) }

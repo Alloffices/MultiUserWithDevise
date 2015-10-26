@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  requester_id: 1
-  accepted_id: 1
+  keywords: MyString
+  title: MyString
 
 two:
-  requester_id: 1
-  accepted_id: 1
+  keywords: MyString
+  title: MyString

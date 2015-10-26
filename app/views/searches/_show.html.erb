@@ -1,0 +1,15 @@
+<h1>Search Result</h1>
+<% if @search.search_posts.size <= 0 %>
+	<p>No Records Found</p>
+<% else %>
+	<% @search.search_posts.each do |c| %>
+		<div>
+			<div class="container" >
+			<%= image_tag c.image, style: "
+			height: 100px;
+			width: 100px;"%>
+			</div>
+			<h1><%= c.title %></h1>
+		</div>
+	<% end %>
+<% end %>
