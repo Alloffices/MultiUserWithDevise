@@ -5,4 +5,5 @@ class Contribution < ActiveRecord::Base
 	def accept
     	self.accepted = true
   	end
+
 end

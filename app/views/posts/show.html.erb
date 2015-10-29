@@ -12,6 +12,26 @@
     <div class="panel-heading pin_image">
 		<%= image_tag @post.image.url(:medium) %>
     </div>
+
+
+  <h2>Contributors</h2>
+
+  <% @post.contribution_requests.each do |d| %>
+    <%= d.user.name %>
+    <%= d.post.contribution_requests.count %>
+    <%= d.post.contributions.count %>
+    <%= d.post.contributors.count %>
+  <% end %>
+
+  <h3>Requests</h3>
+  <%= link_to "Contributor",contributions_create_path(user_id = @user), method: :post, class:" btn btn-primary" %>
+  <%= @contributions.each do |f| %>
+    <%= f.user.name %>
+    <%= f.user.email %>
+    <%= link_to "Remove", contributions_destroy_path,method: :delete %>
+    <br />
+  <% end %>
+
     <div class="panel-body">
       <h1>
         <%= @post.title %>
@@ -37,7 +57,6 @@
           </p>
           <%= link_to "Join Project", like_post_path(@post), method: :get, class: "btn btn-primary btn-block" %>
         </div>
-
     </div>
   </div>
 </div>

@@ -10,6 +10,7 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @contributions = Contribution.all
   end
 
   # GET /posts/new
@@ -85,6 +86,7 @@ class PostsController < ApplicationController
     redirect_to :back
   end
 
+
   private
 
     def authenticate
@@ -98,6 +100,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :content, :image)
+      params.require(:post).permit(:title, :content, :image, :accepted)
     end
 end

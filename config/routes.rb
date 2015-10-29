@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  post 'contributions/create'
+
+  post 'contributions/destroy'
+  resources :contributions
   devise_for :users
 
   resources :posts do 

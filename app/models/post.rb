@@ -29,7 +29,7 @@ class Post < ActiveRecord::Base
 	  end
 	end
 
-	# private 	
+	# private
 
 	# def user_quota
 
