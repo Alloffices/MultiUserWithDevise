@@ -1,6 +1,6 @@
 class Post < ActiveRecord::Base
 	acts_as_votable
-	
+
 	validates :title, :content, presence: true
 
 	has_attached_file :image, styles: { medium: "250x250#", small: "200x200#" }
@@ -9,6 +9,18 @@ class Post < ActiveRecord::Base
 	belongs_to :user
 	has_many :comments
 
+	# Who wrote the post. BDD foreign key: author_id
+	belongs_to :author, class_name: 'User'
+
+	# All requests: Contributions for this post with accepted == false
+	has_many :contribution_requests, -> { where(accepted: false) }, class_name: 'Contribution'
+
+	# All accepted contributions: Contributions for this post with accepted == true
+	has_many :contributions, -> { where(accepted: true) }
+
+	# Actual contributors: all users with contributions for this post having accepted as true
+	has_many :contributors, through: :contributions, source: :user
+
 	def self.search(search)
 	  if search
 	    where(['name LIKE ?', "%#{search}%"])
@@ -16,7 +28,6 @@ class Post < ActiveRecord::Base
 	    all
 	  end
 	end
-
 
 	# private 	
 
@@ -30,7 +41,6 @@ class Post < ActiveRecord::Base
 
 	# 	end
 	# end
-
 
 end
 
